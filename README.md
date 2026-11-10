@@ -1,30 +1,28 @@
 # Orbit — Visual Identity Website
 
-A responsive static visual identity site for Orbit, ready for GitHub Pages. No build tools required.
+A responsive static website for Orbit's visual identity system. No build tools or installation required.
 
-## Publish to GitHub Pages
-1. Create a new **public** GitHub repository named `orbit-identity`.
-2. Upload **index.html**, **style.css**, **script.js**, and the **assets** folder to the repository root. Commit changes.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select **main** and **/(root)**, then **Save**.
-6. Wait for deployment. Your website URL will be `https://YOUR-USERNAME.github.io/orbit-identity/`.
+## Preview
+Open `index.html` in a browser. Navigation uses hash links so it works locally and on GitHub Pages.
 
-## Add your approved artwork
-- `assets/orbit-logo.svg`: approved Orbit wordmark (automatically replaces the text preview in Logo section).
-- `assets/photo-1.jpg` through `photo-3.jpg`: Photography section.
-- `assets/app-1.jpg` through `app-6.jpg`: Applications section.
+## Add images
+Put your photos in `assets/` with these names:
+- `photo-1.jpg`, `photo-2.jpg`, `photo-3.jpg` for Photography
+- `app-1.jpg` through `app-6.jpg` for Applications
 
-Files must use these exact names, or update the paths in `script.js`.
+Images automatically appear when files with those names are present. Until then, editable placeholders remain visible. Keep image proportions consistent (4:5 photography; 4:3 applications).
 
-## Update brand colors
-In `style.css`, edit the `:root` values for `--cream`, `--ink`, `--pink`, and `--pale`. Current colors are placeholders until confirmed against the official palette.
+## Update branding
+- Change color values at the beginning of `style.css` under `:root`.
+- Replace demonstration logo elements in `index.html` with your approved SVG artwork; do not redraw the original logo from type.
+- Edit headings, paragraphs, and section labels directly in `index.html`.
+- The font is Space Grotesk loaded via Google Fonts.
 
-## Edit copy
-Edit headings and paragraphs in `index.html`. Keep the HTML tags intact.
-
-## Optional custom domain
-In GitHub **Settings → Pages → Custom domain**, enter a domain you control. Configure DNS records with your domain registrar using GitHub's current Pages instructions. Do not change an existing live domain until you are ready to point it at this site.
+## Publish with GitHub Pages
+1. Create a public GitHub repository named `orbit-identity`.
+2. Upload `index.html`, `style.css`, `script.js`, `README.md`, and the `assets` folder to the repository root.
+3. Open Settings > Pages. Under Build and deployment select Deploy from a branch, `main`, `/(root)` and Save.
+4. Visit `https://YOUR-USERNAME.github.io/orbit-identity/` after the deployment completes.
 
 ## Notes
-The logo in the top navigation is a temporary text rendering. Replace it with approved artwork if exact fidelity is needed. This site is an independent student concept, not an official service.
+This is a functional identity-system website template, not a replacement for the approved artwork. Logo demonstrations and starter palette should be updated against final brand assets.
