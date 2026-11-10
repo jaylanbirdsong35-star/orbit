@@ -26,57 +26,8 @@ async function clearDraft(){const database=await db();return new Promise((resolv
 async function save(){const d=data();try{await storeDraft(d);msg('Draft saved on this device, including images.')}catch(e){try{localStorage.setItem('orbit-edits-v4',JSON.stringify(d));msg('Draft saved in browser.')}catch{msg('Could not save draft: browser storage is full. Download updated website or backup now.')}}return d}
 $('#saveEdits').onclick=save;
 $('#resetEdits').onclick=()=>{if(confirm('Reset your local edits?')){localStorage.removeItem('orbit-edits-v3');localStorage.removeItem('orbit-edits-v4');clearDraft().finally(()=>location.reload())}};
-
-function downloadFile(filename,contents,mime){
-  const blob=new Blob([contents],{type:mime});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download=filename;a.style.display='none';
-  document.body.appendChild(a);a.click();
-  setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},60000);
-}
-$('#exportSite').onclick=async()=>{
-  const button=$('#exportSite');
-  button.disabled=true;button.textContent='Preparing your download…';
-  try{
-    const d=data();
-    const clone=document.documentElement.cloneNode(true);
-    clone.querySelector('body').classList.remove('editing');
-    clone.querySelector('#editor').hidden=true;
-    clone.querySelector('#editToggle').textContent='Edit site ↗';
-    clone.querySelectorAll('[contenteditable]').forEach(e=>e.removeAttribute('contenteditable'));
-    clone.querySelectorAll('[data-color]').forEach(e=>e.setAttribute('value',d.colors[e.dataset.color]||defaults[e.dataset.color]));
-    clone.querySelectorAll('[data-hex]').forEach(e=>e.setAttribute('value',d.colors[e.dataset.hex]||defaults[e.dataset.hex]));
-    clone.querySelectorAll('.page').forEach(e=>e.classList.remove('current'));
-    clone.querySelector('#home').classList.add('current');
-    clone.querySelector('#publishedState')?.remove();
-    const state=document.createElement('script');
-    state.id='publishedState';state.type='application/json';
-    state.textContent=JSON.stringify(d).replace(/</g,'\\u003c');
-    const originalScript=clone.querySelector('script[src="script.js"]');
-    if(!originalScript)throw new Error('Cannot find website script');
-    originalScript.before(state);
-    // Include all styling and behavior in the exported file.
-    const [cssResponse,jsResponse]=await Promise.all([fetch('style.css'),fetch('script.js')]);
-    if(!cssResponse.ok||!jsResponse.ok)throw new Error('Could not load website assets');
-    const css=await cssResponse.text(),code=await jsResponse.text();
-    const cssLink=clone.querySelector('link[href="style.css"]');
-    if(cssLink){const style=document.createElement('style');style.textContent=css;cssLink.replaceWith(style)}
-    const inlineScript=document.createElement('script');
-    inlineScript.textContent=code.replace(/<\/script/gi,'<\\/script');
-    originalScript.replaceWith(inlineScript);
-    downloadFile('orbit-updated-website.html','<!doctype html>\n'+clone.outerHTML,'text/html;charset=utf-8');
-    msg('Download started. Rename the file index.html before uploading to GitHub.');
-  }catch(err){
-    console.error('Orbit export failed',err);
-    msg('Export error: '+err.message+'. Try Download editable backup.');
-    alert('Could not export the website: '+err.message+'\nYour edits have NOT been erased. Try Download editable backup (JSON).');
-  }finally{
-    button.disabled=false;button.textContent='Download updated website';
-  }
-};
-
-let published=null;try{published=JSON.parse($('#publishedState')?.textContent||'null')}catch{}apply(published);readDraft().then(d=>{if(d)apply(d);else{try{const old=JSON.parse(localStorage.getItem('orbit-edits-v3')||localStorage.getItem('orbit-edits-v4')||'null');if(old)apply(old)}catch{}}}).catch(()=>{try{const old=JSON.parse(localStorage.getItem('orbit-edits-v3')||localStorage.getItem('orbit-edits-v4')||'null');if(old)apply(old)}catch{}});
+$('#exportSite').onclick=()=>{const d=data();const clone=document.documentElement.cloneNode(true);clone.querySelector('body').classList.remove('editing');clone.querySelector('#editor').hidden=true;clone.querySelector('#editToggle').textContent='Edit site ↗';clone.querySelectorAll('[contenteditable]').forEach(e=>e.removeAttribute('contenteditable'));clone.querySelectorAll('[data-color]').forEach(e=>{const k=e.dataset.color;e.setAttribute('value',d.colors[k]||defaults[k])});clone.querySelectorAll('[data-hex]').forEach(e=>e.setAttribute('value',d.colors[e.dataset.hex]||defaults[e.dataset.hex]));clone.querySelectorAll('.page').forEach(e=>e.classList.remove('current'));clone.querySelector('#home').classList.add('current');const css=clone.querySelector('html').getAttribute('style')||'';clone.querySelector('html').setAttribute('style',css);const state=clone.querySelector('#publishedState');if(state)state.remove();const embedded=document.createElement('script');embedded.id='publishedState';embedded.type='application/json';embedded.textContent=JSON.stringify(d).replace(/</g,'\\u003c');clone.querySelector('script[src="script.js"]').before(embedded);const html='<!doctype html>\n'+clone.outerHTML;const url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='index.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);msg('Downloaded index.html with images and text. Replace index.html on GitHub.')};
+let published=null;try{published=JSON.parse($('#publishedState')?.textContent||'null')}catch{}apply(published);
 $('#downloadBackup').onclick=()=>{const blob=new Blob([JSON.stringify(data())],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='orbit-editable-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);msg('Backup downloaded.')};
 $('#restoreBackup').onclick=()=>$('#backupInput').click();
 $('#backupInput').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d||!d.text||!d.images)throw Error('Invalid backup');apply(d);await save();msg('Backup restored.')}catch{msg('Could not read this backup file.')}e.target.value=''};
