@@ -32,3 +32,12 @@ $('#downloadBackup').onclick=()=>{const blob=new Blob([JSON.stringify(data())],{
 $('#restoreBackup').onclick=()=>$('#backupInput').click();
 $('#backupInput').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d||!d.text||!d.images)throw Error('Invalid backup');apply(d);await save();msg('Backup restored.')}catch{msg('Could not read this backup file.')}e.target.value=''};
 })();
+
+// Application gallery controls (independent of the legacy edit panel).
+document.querySelectorAll('.interactive-project').forEach(card=>{
+ const slides=[...card.querySelectorAll('.project-slide')];let active=0;
+ function show(n){if(slides.length<2)return;active=(n+slides.length)%slides.length;slides.forEach((slide,i)=>{slide.classList.toggle('active',i===active);if(slide.tagName==='VIDEO'){if(i===active)slide.play().catch(()=>{});else slide.pause()}});const count=card.querySelector('.gallery-counter');if(count)count.textContent=`${active+1} / ${slides.length}`}
+ card.querySelector('.gallery-arrow.prev')?.addEventListener('click',e=>{e.stopPropagation();show(active-1)});
+ card.querySelector('.gallery-arrow.next')?.addEventListener('click',e=>{e.stopPropagation();show(active+1)});
+ card.querySelector('.project-overlay')?.addEventListener('click',e=>{if(e.target.closest('a'))return;});
+});

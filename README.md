@@ -1,27 +1,24 @@
-# Orbit — GitHub Pages flat-file upload
+# Orbit — Website (updated November 10, 2026)
 
-This package is specifically designed for GitHub's **Add file → Upload files** workflow when folders do not upload correctly.
+## Upload the entire website to GitHub Pages
 
-## Upload every file (including README.md)
+1. Unzip `orbit-website-gallery-update.zip`.
+2. Open https://github.com/jaylanbirdsong35-star/orbit and select **Add file → Upload files**.
+3. Open the unzipped folder on your computer, select **all the files inside** (Command+A / Ctrl+A), and drag them onto GitHub. **Do not drag the ZIP itself.**
+4. Include `index.html`, `style.css`, `script.js`, **this updated `README.md`**, and every `.png`, `.jpg`, and `.mp4` file. **There is no assets folder**: all files belong at the repository root.
+5. Click **Commit changes**. Check Settings → Pages is configured to deploy from the main branch / root.
+6. Visit https://jaylanbirdsong35-star.github.io/orbit/#home and hard refresh after GitHub Pages deploys.
 
-1. Download and **unzip** this package on your computer.
-2. Open your GitHub repository `jaylanbirdsong35-star/orbit`.
-3. Choose **Add file → Upload files**.
-4. Open the unzipped folder, select **ALL files** inside (Command+A / Ctrl+A), and drag them onto GitHub. **There is no assets folder**. Every image, video, HTML, CSS, JS and this README is at the same level.
-5. Scroll down and select **Commit changes**. Allow GitHub Pages a few minutes to publish, then hard refresh.
-6. If an old `assets` folder remains in GitHub, it is no longer used by this version and can be left alone.
+## What's changed
 
-**Important:** Upload the actual files, not the ZIP itself. `index.html` and every image should appear in the **root of the repository**, next to this README. GitHub Pages does not read the README to create or upload files; it only displays instructions.
-
-## What changed
-
-- All image and video references now point to files at repository root; no folder upload required.
-- Strategy no longer displays a logomark above the six strategy cards.
-- Logo page: two primary logo versions side by side, then scroll to two logomark versions side by side.
-- Original interface, page navigation and logo stage sizes are preserved. Images use `contain` to avoid cropping or distortion.
+- Homepage artwork fills the full hero area, with the original full image shown without cropping and a blurred edge-to-edge background to fill any extra space.
+- Strategy accent cards use lime rather than pink.
+- Photography images span the entire grid without gaps and use `object-fit: contain` to preserve every part of the images.
+- Applications have working previous/next arrows for projects with multiple supplied images, plus full descriptions visible on hover or keyboard focus.
+- Application images are edge-to-edge by default; on hover the full image is shown without cropping.
+- The application text is taken from `Applications information.pdf`. The interactive-floor image wasn't supplied, so that project has a placeholder.
+- Original logo layout, navigation and overall site structure are retained.
 
 ## Troubleshooting
 
-If images are absent, open `https://jaylanbirdsong35-star.github.io/orbit/home-background-landing.png` directly. If you see 404, the file has not been uploaded to the repository root or GitHub Pages has not published yet.
-
-If your browser shows an old draft, test in a private/incognito window. Do not clear browser data unless you have backed up local edits.
+If photos do not appear, open a photo URL directly, for example: https://jaylanbirdsong35-star.github.io/orbit/home-background-landing.png . If that URL is missing, the image file wasn't uploaded to the repository root. README files do not upload images automatically.

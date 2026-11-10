@@ -26,3 +26,35 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 
 /* Paired logo presentations; original-sized stages, no crop */
 .logo-row-heading{font-size:22px;font-weight:600;letter-spacing:-.04em;margin:22px 0 18px}.logo-pair{margin-bottom:20px}.logo-pair .logo-stage{background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important}.logo-pair .logo-stage:before{display:none}
+
+/* Orbit full-bleed artwork: preserve complete original composition */
+:root{--lime:#d2e39c}
+.tile.lime{background:var(--lime);color:var(--ink)}
+.hero.has-image{background-size:cover!important;background-position:center!important;overflow:hidden}
+.hero-background-art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:-1;pointer-events:none}
+.hero.has-image:after{content:"";position:absolute;inset:0;background:inherit;background-size:cover;background-position:center;filter:blur(25px);transform:scale(1.07);z-index:-2;pointer-events:none}
+.hero-background-art{z-index:0}.hero .eyebrow,.hero .hero-body,.hero .hero-foot{z-index:1}
+#panel-photography .three-grid{gap:0}
+.photo-slot.has-image{background-size:cover!important;border:0;overflow:hidden}
+.photo-slot .photo-art{display:block;width:100%;height:100%;object-fit:contain;position:relative;z-index:1}
+.photo-slot.has-image:after{content:"";position:absolute;inset:-12px;background:inherit;background-size:cover;filter:blur(16px);opacity:.65}
+.photo-slot>span{display:block!important;z-index:2;background:rgba(244,240,232,.85);padding:7px 9px;color:#191919}
+.project-grid{align-items:start}
+.project-stage{position:relative;aspect-ratio:1/1.08;background:#dedad3;overflow:hidden;isolation:isolate}
+.project-slide{display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:object-fit .2s}
+.project-slide.active{display:block}
+.project-stage:hover .project-slide.active,.project-stage:focus-within .project-slide.active{object-fit:contain}
+.project-stage:hover,.project-stage:focus-within{background:#e9e6e1}
+.project-missing{height:100%;display:grid;place-items:center;font-size:12px;letter-spacing:.12em;color:#777}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:37px;height:45px;border:0;background:rgba(244,240,232,.92);color:#191919;font-size:30px;line-height:1;display:grid;place-items:center;opacity:1}
+.gallery-arrow.prev{left:0}.gallery-arrow.next{right:0}
+.gallery-arrow:hover,.gallery-arrow:focus-visible{background:var(--lime)}
+.gallery-counter{position:absolute;bottom:10px;right:10px;z-index:6;background:rgba(244,240,232,.9);padding:5px 8px;font-size:11px}
+.project-overlay{position:absolute;inset:0;z-index:4;background:rgba(210,227,156,.97);color:#191919;padding:24px;display:flex;flex-direction:column;gap:12px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;overflow-y:auto;scrollbar-width:thin}
+.project-stage:hover .project-overlay,.project-overlay:focus-visible,.project-stage:focus-within .project-overlay{opacity:1;visibility:visible}
+.project-overlay h3{font-size:clamp(23px,2.4vw,36px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 0}
+.project-overlay p{font-size:13px;line-height:1.55;margin:0 0 10px}
+.overlay-kicker{font-size:10px;letter-spacing:.1em}
+.project-meta h3{font-size:17px}
+@media(hover:none){.project-overlay{position:relative;inset:auto;opacity:1;visibility:visible;max-height:210px;padding:14px}.project-overlay h3{font-size:22px}.project-overlay p{font-size:12px}.project-stage{overflow:visible;margin-bottom:210px}.project-overlay{top:100%}}
+@media(max-width:620px){.project-grid{grid-template-columns:1fr}.photo-slot{height:330px}.project-overlay{max-height:210px}}
