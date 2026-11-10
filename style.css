@@ -23,3 +23,6 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 .tile{min-height:430px}.tile h3{font-size:clamp(28px,2.8vw,48px);margin:20px 0 12px}.tile p{font-size:13px;line-height:1.48;margin-top:0}
 @media(max-width:900px){.swatches{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{min-height:unset}}
+
+/* Paired logo presentations; original-sized stages, no crop */
+.logo-row-heading{font-size:22px;font-weight:600;letter-spacing:-.04em;margin:22px 0 18px}.logo-pair{margin-bottom:20px}.logo-pair .logo-stage{background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important}.logo-pair .logo-stage:before{display:none}

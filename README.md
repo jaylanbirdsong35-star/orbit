@@ -1,41 +1,27 @@
-# ORBIT — WEBSITE PACKAGE (IMAGES INCLUDED)
+# Orbit — GitHub Pages flat-file upload
 
-**This README has been updated for the complete website upload.**
+This package is specifically designed for GitHub's **Add file → Upload files** workflow when folders do not upload correctly.
 
-## IMPORTANT: How to publish on GitHub Pages
+## Upload every file (including README.md)
 
-1. Download and **unzip** `orbit-github-fixed.zip` on your computer.
+1. Download and **unzip** this package on your computer.
 2. Open your GitHub repository `jaylanbirdsong35-star/orbit`.
 3. Choose **Add file → Upload files**.
-4. Open the unzipped `orbit-github-fixed` folder. Select **all four items together**: `index.html`, `style.css`, `script.js`, and the `assets` folder. Drag the selected items into GitHub's upload area. **Do not upload only the README or only index.html.**
-5. Also upload this updated `README.md` (or select all five items together).
-6. Scroll down and click **Commit changes**. Wait for GitHub Pages to deploy, then refresh the site (hard refresh: Cmd+Shift+R on Mac).
+4. Open the unzipped folder, select **ALL files** inside (Command+A / Ctrl+A), and drag them onto GitHub. **There is no assets folder**. Every image, video, HTML, CSS, JS and this README is at the same level.
+5. Scroll down and select **Commit changes**. Allow GitHub Pages a few minutes to publish, then hard refresh.
+6. If an old `assets` folder remains in GitHub, it is no longer used by this version and can be left alone.
 
-**The `assets/` folder must be visible at the repository root next to `index.html`.** Check that GitHub displays `assets/home-background-landing.png`, for example. If `assets` is missing, the images will not show.
+**Important:** Upload the actual files, not the ZIP itself. `index.html` and every image should appear in the **root of the repository**, next to this README. GitHub Pages does not read the README to create or upload files; it only displays instructions.
 
-Your repository root should look like:
+## What changed
 
-```
-index.html
-style.css
-script.js
-README.md
-assets/
-    home-background-landing.png
-    ... other images ...
-```
+- All image and video references now point to files at repository root; no folder upload required.
+- Strategy no longer displays a logomark above the six strategy cards.
+- Logo page: two primary logo versions side by side, then scroll to two logomark versions side by side.
+- Original interface, page navigation and logo stage sizes are preserved. Images use `contain` to avoid cropping or distortion.
 
-## What was fixed
+## Troubleshooting
 
-The previous ZIP used image filenames like `home-background-landing-png` **without a real `.png` extension**. GitHub Pages can serve those with the wrong content type, causing the browser to refuse to display them. This package gives every image its correct extension and updates every image path in the HTML. All supplied images are included.
+If images are absent, open `https://jaylanbirdsong35-star.github.io/orbit/home-background-landing.png` directly. If you see 404, the file has not been uploaded to the repository root or GitHub Pages has not published yet.
 
-The original website interface, navigation and image-container sizes remain unchanged. Image fitting uses `contain` so the full image is visible without cropping or stretching. Blank space may appear around differently proportioned images.
-
-## If you still see no images
-
-- Verify that the `assets` folder actually appears in the GitHub repository root.
-- Try opening `https://jaylanbirdsong35-star.github.io/orbit/assets/home-background-landing.png` directly. If it shows a 404, the assets folder is not published at the correct location.
-- Use a private/incognito window to avoid browser-local editing drafts masking the published version.
-- GitHub Pages publishes files from the configured branch/folder in **Settings → Pages**. Make sure it uses the branch where you uploaded these files and `/(root)`.
-
-All copy is based on the supplied PDF. Unfilled project image slots remain unfilled.
+If your browser shows an old draft, test in a private/incognito window. Do not clear browser data unless you have backed up local edits.
