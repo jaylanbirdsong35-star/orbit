@@ -1,12 +1,15 @@
-# Orbit — editable, separate-page website
+# Orbit — Visual Identity Website (updated)
+
+This is a static, GitHub Pages-ready website with separate same-tab pages and a browser-based editor.
 
 ## Publish
-Upload `index.html`, `style.css`, and `script.js` to the **root** of your GitHub repository. Replace the older versions. GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root).
 
-## Pages
-The navigation switches Home, Strategy, Logo, Color, Typography, Photography, Applications, and About **without continuous scrolling**. URLs use hashes, so GitHub Pages needs no server routing.
+Upload **index.html**, **style.css**, and **script.js** to the root of your existing GitHub repository `orbitsite`. Replace the older files, then commit changes. GitHub Pages should remain configured to publish from `main` / `(root)`.
 
 ## Edit
-Open the live site and click **Edit site**. Use **Upload background image** for the homepage, or click a photography/application placeholder to add a picture. Click highlighted text to edit. Click **Download updated website** to export `index.html`, then replace that file in GitHub. Browser-only saving does not publish edits. Uploaded pictures are embedded in the exported HTML. Keep each image under 1.8 MB.
 
-Note: this is a public static site, not a password-protected CMS. The Edit site control is visible to visitors, but changes they make are local and cannot change your GitHub repository.
+Open the live site, click **Edit site**. You can change editable text, upload a full-color homepage background, upload the header wordmark and both logo examples, replace 12 application images, and enter exact hex values. Save locally while working. When finished, click **Download updated website** and replace only `index.html` on GitHub. This export embeds your text, colors, and uploaded images; keep `style.css` and `script.js` in the repository.
+
+**Note:** The editor stores a draft in your browser. If you use another device or clear browser data, the draft may not be there. Export frequently. GitHub Pages is public and static: anyone can open the editor locally, but they cannot publish to your repository without GitHub permissions. For private/admin-only editing, a separate authenticated content management system is required.
+
+The brand colors included are editable starter values, not verified approved swatches. Upload your actual logo files to ensure fidelity.
