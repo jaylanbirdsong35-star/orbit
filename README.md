@@ -21,3 +21,7 @@
 - index.html — site structure
 - style.css — design and responsive layout
 - script.js — navigation and editor
+
+
+## Version 5 export fix
+Keep your existing live browser tab and edits. Replace the site files on GitHub, then refresh and open Edit Mode. The editor loads saved browser drafts from the same website origin. Use Download updated website: this version generates a single self-contained HTML file with CSS, JS, text, and uploaded images. Rename orbit-updated-website.html to index.html and upload it to the repository root. The editable JSON backup is an additional safeguard. If downloads are blocked, allow automatic downloads for your GitHub Pages website in browser settings.
