@@ -1,28 +1,26 @@
 # Orbit — Visual Identity Website
 
-A responsive static website for Orbit's visual identity system. No build tools or installation required.
+A GitHub Pages-ready Orbit identity website inspired by the public Squarespace homepage, with a built-in local visual editor.
 
-## Preview
-Open `index.html` in a browser. Navigation uses hash links so it works locally and on GitHub Pages.
+## Publish / replace existing GitHub site
 
-## Add images
-Put your photos in `assets/` with these names:
-- `photo-1.jpg`, `photo-2.jpg`, `photo-3.jpg` for Photography
-- `app-1.jpg` through `app-6.jpg` for Applications
+1. Open your GitHub repository `jaylanbirdsong35-star/orbitsite`.
+2. Upload `index.html`, `style.css`, and `script.js` to the repository root (replace the existing files). Use **Add file → Upload files**, or open each file and replace its contents. Commit changes.
+3. In **Settings → Pages**, choose **Deploy from a branch**, branch **main**, folder **/(root)** and save.
+4. Visit https://jaylanbirdsong35-star.github.io/orbitsite/ after deployment finishes.
 
-Images automatically appear when files with those names are present. Until then, editable placeholders remain visible. Keep image proportions consistent (4:5 photography; 4:3 applications).
+## Edit the site
 
-## Update branding
-- Change color values at the beginning of `style.css` under `:root`.
-- Replace demonstration logo elements in `index.html` with your approved SVG artwork; do not redraw the original logo from type.
-- Edit headings, paragraphs, and section labels directly in `index.html`.
-- The font is Space Grotesk loaded via Google Fonts.
+1. Open the published site in your browser.
+2. Click **Edit site** at the top right.
+3. Click outlined text to edit it, or click a photo placeholder to upload an image. Use the color inputs to change site colors.
+4. Click **Save on this browser** to keep a draft in that browser.
+5. Click **Download updated website** to export a replacement `index.html`.
+6. On GitHub, open the repository's `index.html`, click the pencil icon, replace its content with the downloaded file's content, and commit. Or upload the new `index.html` through **Add file → Upload files**, replacing the existing file.
+7. Refresh the published site after GitHub finishes deployment.
 
-## Publish with GitHub Pages
-1. Create a public GitHub repository named `orbit-identity`.
-2. Upload `index.html`, `style.css`, `script.js`, `README.md`, and the `assets` folder to the repository root.
-3. Open Settings > Pages. Under Build and deployment select Deploy from a branch, `main`, `/(root)` and Save.
-4. Visit `https://YOUR-USERNAME.github.io/orbit-identity/` after the deployment completes.
+**Important:** Editing the live site does not automatically change GitHub. Local saves are browser-specific. For public changes, export and commit the updated file. Uploaded photos are embedded in the exported HTML, so keep each image optimized (under 1 MB recommended). Do not add private information to this public website.
 
-## Notes
-This is a functional identity-system website template, not a replacement for the approved artwork. Logo demonstrations and starter palette should be updated against final brand assets.
+## Design fidelity
+
+This is a visual interpretation based on the publicly readable Squarespace homepage text and Orbit's established identity rules, **not** a pixel-perfect extraction of Squarespace layout or original artwork. The wordmark and circles in this starter are demonstrations and should be replaced with approved logo assets for final use. Starter colors are approximations.
