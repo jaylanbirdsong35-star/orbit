@@ -58,3 +58,26 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 .project-meta h3{font-size:17px}
 @media(hover:none){.project-overlay{position:relative;inset:auto;opacity:1;visibility:visible;max-height:210px;padding:14px}.project-overlay h3{font-size:22px}.project-overlay p{font-size:12px}.project-stage{overflow:visible;margin-bottom:210px}.project-overlay{top:100%}}
 @media(max-width:620px){.project-grid{grid-template-columns:1fr}.photo-slot{height:330px}.project-overlay{max-height:210px}}
+
+/* v3: true edge-to-edge image rendering, no haze/blur layers */
+.hero.has-image{background-image:none!important;background-color:#171717!important;isolation:isolate}
+.hero.has-image:after,.hero.has-image:before{content:none!important;display:none!important}
+.hero-background-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;z-index:-1!important;filter:none!important;opacity:1!important}
+.hero .eyebrow,.hero .hero-body,.hero .hero-foot{position:relative;z-index:1}
+#panel-photography .three-grid{gap:0!important}
+.photo-slot.has-image{background-image:none!important;overflow:hidden!important}
+.photo-slot.has-image:before,.photo-slot.has-image:after{content:none!important;display:none!important}
+.photo-slot .photo-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;filter:none!important;opacity:1!important}
+.tile.purpose-gradient{background:linear-gradient(110deg,#e276ae,#e4574b)!important;color:#191919!important}
+.tile.personality-gradient{background:linear-gradient(110deg,#d3e6a3,#a1cde8)!important;color:#191919!important}
+/* Full bleed project at rest; on hover, complete image and readable description */
+.project-stage{background:#eeeae4!important}
+.project-slide.active{object-fit:cover!important;filter:none!important;opacity:1!important}
+.project-stage:hover .project-slide.active,.project-stage:focus-within .project-slide.active{object-fit:contain!important;height:64%!important;background:#eeeae4!important}
+.project-overlay{inset:auto 0 0!important;height:36%!important;background:#d2e39c!important;opacity:0;visibility:hidden;overflow-y:auto!important;padding:13px 18px!important;gap:7px!important}
+.project-stage:hover .project-overlay,.project-stage:focus-within .project-overlay{opacity:1;visibility:visible}
+.project-overlay h3{font-size:clamp(18px,1.6vw,25px)!important;margin:0!important}
+.project-overlay p{font-size:12px!important;line-height:1.4!important}
+.project-stage:hover .gallery-arrow,.project-stage:focus-within .gallery-arrow{top:32%}
+.project-stage video.project-slide.active{object-fit:contain!important;background:#080808!important}
+@media(hover:none){.project-stage{overflow:hidden!important;margin-bottom:0!important}.project-overlay{position:absolute!important;top:auto!important;max-height:none!important;height:40%!important;opacity:1!important;visibility:visible!important}.project-slide.active{height:60%!important;object-fit:contain!important}.gallery-arrow{top:30%!important}}

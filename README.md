@@ -1,24 +1,23 @@
-# Orbit — Website (updated November 10, 2026)
+# Orbit — GitHub Pages website (Full-bleed v3)
 
-## Upload the entire website to GitHub Pages
+This ZIP is **flat**: all images, the MP4 video, HTML, CSS, JS, and this README are at the root. No `assets` folder is needed.
 
-1. Unzip `orbit-website-gallery-update.zip`.
-2. Open https://github.com/jaylanbirdsong35-star/orbit and select **Add file → Upload files**.
-3. Open the unzipped folder on your computer, select **all the files inside** (Command+A / Ctrl+A), and drag them onto GitHub. **Do not drag the ZIP itself.**
-4. Include `index.html`, `style.css`, `script.js`, **this updated `README.md`**, and every `.png`, `.jpg`, and `.mp4` file. **There is no assets folder**: all files belong at the repository root.
-5. Click **Commit changes**. Check Settings → Pages is configured to deploy from the main branch / root.
-6. Visit https://jaylanbirdsong35-star.github.io/orbit/#home and hard refresh after GitHub Pages deploys.
+## Upload everything to GitHub
+1. Unzip `orbit-website-full-bleed-v3.zip`.
+2. Open your repository `jaylanbirdsong35-star/orbit`.
+3. Choose **Add file → Upload files**.
+4. Select **all files inside** the unzipped folder, including `index.html`, `style.css`, `script.js`, `README.md`, every `.png` / `.jpg`, and **`orbit-time-profile.mp4`**. Upload them together to the repository root (not a nested folder).
+5. Click **Commit changes**. If GitHub warns about overwriting files, confirm the updates.
+6. Wait for GitHub Pages deployment, then hard refresh the website (Cmd+Shift+R).
 
-## What's changed
+## Changes
+- Homepage image: full-bleed cover with no haze. Full bleed necessarily crops the edges of nonmatching aspect ratios.
+- Photography: full-bleed, no blur or hazy edges.
+- Applications: full-bleed at rest; hovering shows full uncropped image at top and scrollable description underneath. Gallery arrows remain clickable. On touch screens descriptions are shown.
+- Chamberlain Coffee: coffee-cup collage `application-3.png`.
+- Interactive Floor: walking person `application-2.png`.
+- IKEA: `applicationn.png`.
+- Time Profile: real `orbit-time-profile.mp4` video with playback controls, muted autoplay and looping.
+- Strategy: Purpose pink-to-red; Personality green-to-blue.
 
-- Homepage artwork fills the full hero area, with the original full image shown without cropping and a blurred edge-to-edge background to fill any extra space.
-- Strategy accent cards use lime rather than pink.
-- Photography images span the entire grid without gaps and use `object-fit: contain` to preserve every part of the images.
-- Applications have working previous/next arrows for projects with multiple supplied images, plus full descriptions visible on hover or keyboard focus.
-- Application images are edge-to-edge by default; on hover the full image is shown without cropping.
-- The application text is taken from `Applications information.pdf`. The interactive-floor image wasn't supplied, so that project has a placeholder.
-- Original logo layout, navigation and overall site structure are retained.
-
-## Troubleshooting
-
-If photos do not appear, open a photo URL directly, for example: https://jaylanbirdsong35-star.github.io/orbit/home-background-landing.png . If that URL is missing, the image file wasn't uploaded to the repository root. README files do not upload images automatically.
+**Note:** Full-bleed cover and uncropped image cannot be displayed simultaneously in differently shaped containers. This version uses cover normally and contain on hover for applications.
