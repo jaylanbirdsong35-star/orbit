@@ -119,3 +119,6 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 #applications .project-stage:hover .gallery-arrow,#applications .project-stage:focus-within .gallery-arrow{top:34%!important}
 #applications .project-stage[data-project="11"]{background:#080808!important}
 @media(hover:none){#applications .project-slide.active{height:65%!important}#applications .project-overlay{height:35%!important}}
+
+/* About photo: prioritize the top of the original image. */
+#about .about-photo img{object-position:center top!important}
