@@ -81,3 +81,18 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 .project-stage:hover .gallery-arrow,.project-stage:focus-within .gallery-arrow{top:32%}
 .project-stage video.project-slide.active{object-fit:contain!important;background:#080808!important}
 @media(hover:none){.project-stage{overflow:hidden!important;margin-bottom:0!important}.project-overlay{position:absolute!important;top:auto!important;max-height:none!important;height:40%!important;opacity:1!important;visibility:visible!important}.project-slide.active{height:60%!important;object-fit:contain!important}.gallery-arrow{top:30%!important}}
+
+/* Final presentation mode */
+#editToggle,.editor,[data-edit]:focus{display:none!important}
+.orbit-intro{position:fixed;inset:0;z-index:9999;background:#050505;display:flex;align-items:center;justify-content:center}
+.orbit-intro.is-done{display:none!important}
+.orbit-intro video{width:100%;height:100%;object-fit:contain}
+#skipOrbitIntro{position:absolute;right:clamp(18px,4vw,60px);bottom:clamp(24px,5vh,56px);z-index:2;background:#f4f0e8;color:#191919;border:1px solid #191919;padding:14px 22px;font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:.06em;cursor:pointer}
+#skipOrbitIntro:hover{background:#d2e39c}
+#about .about-layout{display:grid!important;grid-template-columns:1fr 1fr!important;gap:clamp(28px,4vw,70px)!important;align-items:center!important;min-height:calc(100vh - 190px)!important}
+#about .about-photo{height:min(73vh,760px);min-height:420px;overflow:hidden}
+#about .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+#about .about-copy{width:100%;min-width:0}
+#about .about-copy h2{font-size:clamp(42px,4.4vw,76px);line-height:1.02;margin:0 0 25px}
+#about .about-copy p{font-size:clamp(15px,1.18vw,19px);line-height:1.47;max-width:none;margin:0}
+@media(max-width:850px){#about .about-layout{grid-template-columns:1fr!important;min-height:0!important;padding-bottom:36px}#about .about-photo{height:48vh;min-height:280px}#about .about-copy p{font-size:17px;line-height:1.5}}
