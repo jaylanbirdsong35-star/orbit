@@ -42,5 +42,5 @@ document.querySelectorAll('.interactive-project').forEach(card=>{
  card.querySelector('.project-overlay')?.addEventListener('click',e=>{if(e.target.closest('a'))return;});
 });
 
-// Opening animation: show once on entry; skip or finish transitions to the unchanged homepage.
-(()=>{const layer=document.getElementById('orbitIntro');const video=document.getElementById('orbitIntroVideo');const skip=document.getElementById('skipOrbitIntro');if(!layer||!video)return;let done=false;function finish(){if(done)return;done=true;layer.classList.add('is-done');video.pause();}skip?.addEventListener('click',finish);video.addEventListener('ended',finish);video.addEventListener('error',finish);video.play().catch(()=>{video.controls=true;});})();
+// Opening animation is fully removed from the page after playback or skipping.
+(()=>{const layer=document.getElementById('orbitIntro');const video=document.getElementById('orbitIntroVideo');const skip=document.getElementById('skipOrbitIntro');if(!layer||!video)return;let finished=false;function finish(){if(finished)return;finished=true;video.pause();video.removeAttribute('src');video.load();layer.remove();try{sessionStorage.setItem('orbit-intro-seen','1')}catch{}}let seen=false;try{seen=sessionStorage.getItem('orbit-intro-seen')==='1'}catch{}if(seen){finish();return}skip?.addEventListener('click',finish);video.addEventListener('ended',finish);video.addEventListener('error',finish);video.play().catch(()=>{video.controls=true});})();
