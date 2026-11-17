@@ -225,3 +225,8 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 .book-pages canvas[hidden]{display:block;visibility:hidden}
 .book-pages canvas:first-child{border-right:1px solid #aaa}
 @media(max-width:700px){.book-pages{aspect-ratio:19/7.5}}
+
+/* Original 9.5 x 7.5 landscape PNG book pages */
+#panel-book .book-pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));aspect-ratio:19/7.5;overflow:hidden;background:#efebe4}
+#panel-book .book-pages canvas{display:block;width:100%;height:100%;aspect-ratio:9.5/7.5;object-fit:contain;background:#efebe4}
+#panel-book .book-pages canvas[hidden]{visibility:hidden}
