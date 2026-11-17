@@ -167,3 +167,11 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 #applications .project-stage{aspect-ratio:19/15!important;padding:0!important;border:0!important;background:transparent!important}
 #applications .project-slide.active{width:100%!important;height:100%!important;inset:0!important;object-fit:fill!important}
 #applications .project-stage:hover .project-slide.active,#applications .project-stage:focus-within .project-slide.active{width:100%!important;height:100%!important;object-fit:fill!important}
+
+/* Application display correction: no stretched media, static gallery, black Time backdrop */
+#applications .project-stage{background:#000!important;aspect-ratio:19/15!important}
+#applications .project-slide.active{object-fit:contain!important;width:100%!important;height:100%!important}
+#applications .project-stage:hover .project-slide.active,#applications .project-stage:focus-within .project-slide.active{object-fit:contain!important;width:100%!important;height:100%!important}
+#applications .gallery-arrow,#applications .gallery-counter{display:none!important}
+#applications .project-stage:has(video){background:#000!important}
+#applications .project-stage video.project-slide.active{object-fit:contain!important;object-position:center!important;background:#000!important}
