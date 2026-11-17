@@ -217,3 +217,11 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 .book-pdf-link{display:inline-block;color:inherit;text-decoration:underline;margin-top:12px}
 #bookNotice{font-size:14px}
 @media(max-width:700px){.book-heading{display:block}.book-heading p{margin-top:22px}.book-controls button{padding:10px;font-size:12px}}
+
+/* Preserve the original 9.5 × 7.5 inch landscape page proportions, no cropping or stretching */
+.book-reader{max-width:1200px}
+.book-pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;aspect-ratio:19/7.5;background:#efebe4;box-shadow:0 12px 32px #0002;overflow:hidden}
+.book-pages canvas{width:100%;height:100%;aspect-ratio:19/15;object-fit:contain;background:#efebe4}
+.book-pages canvas[hidden]{display:block;visibility:hidden}
+.book-pages canvas:first-child{border-right:1px solid #aaa}
+@media(max-width:700px){.book-pages{aspect-ratio:19/7.5}}
