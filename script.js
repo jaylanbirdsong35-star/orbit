@@ -41,3 +41,6 @@ document.querySelectorAll('.interactive-project').forEach(card=>{
  card.querySelector('.gallery-arrow.next')?.addEventListener('click',e=>{e.stopPropagation();show(active+1)});
  card.querySelector('.project-overlay')?.addEventListener('click',e=>{if(e.target.closest('a'))return;});
 });
+
+// Opening animation: show once on entry; skip or finish transitions to the unchanged homepage.
+(()=>{const layer=document.getElementById('orbitIntro');const video=document.getElementById('orbitIntroVideo');const skip=document.getElementById('skipOrbitIntro');if(!layer||!video)return;let done=false;function finish(){if(done)return;done=true;layer.classList.add('is-done');video.pause();}skip?.addEventListener('click',finish);video.addEventListener('ended',finish);video.addEventListener('error',finish);video.play().catch(()=>{video.controls=true;});})();
