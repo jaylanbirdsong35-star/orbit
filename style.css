@@ -167,3 +167,10 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 #applications .project-stage{aspect-ratio:19/15!important;padding:0!important;border:0!important;background:transparent!important}
 #applications .project-slide.active{width:100%!important;height:100%!important;inset:0!important;object-fit:fill!important}
 #applications .project-stage:hover .project-slide.active,#applications .project-stage:focus-within .project-slide.active{width:100%!important;height:100%!important;object-fit:fill!important}
+
+/* Time application: solid black matte behind video, including hover */
+#applications article[data-project="10"] .project-stage,
+#applications article[data-project="10"] .project-stage:hover,
+#applications article[data-project="10"] .project-stage:focus-within,
+#applications article[data-project="10"] video.project-slide,
+#applications article[data-project="10"] video.project-slide.active{background:#000!important;background-color:#000!important;object-fit:contain!important}
