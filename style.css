@@ -194,3 +194,26 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 #applications .project-stage video.project-slide.active{display:block!important;position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:#000!important}
 #panel-strategy .strategy-prompt{padding:clamp(30px,4vw,65px) 4% 85px;background:#efebe4}
 #panel-strategy .strategy-prompt h2{font-size:clamp(70px,8.2vw,145px);letter-spacing:-.085em;line-height:1;font-weight:600;margin:0 0 30px}
+
+/* Separate Prompt and Brand Guidelines Book navigation tabs */
+#panel-prompt,#panel-book{padding:0!important}
+#panel-prompt .strategy-prompt{padding:clamp(35px,5vw,75px) 4%;background:#efebe4}
+#panel-prompt .strategy-prompt h2{font-size:clamp(70px,8vw,145px);letter-spacing:-.085em;line-height:1;margin:0 0 28px}
+#panel-prompt .strategy-accordion{max-width:100%}
+#identity .tabbar{flex-wrap:wrap;overflow:visible}
+#identity .tab{font-size:clamp(13px,1.5vw,23px);padding:20px clamp(14px,2.1vw,34px)}
+.book-section{padding:clamp(30px,5vw,75px) 4% 100px;background:#efebe4}
+.book-heading{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:50px}
+.book-heading h2{font-size:clamp(52px,7vw,118px);letter-spacing:-.075em;line-height:.95;margin:0}
+.book-heading p{max-width:380px;font-size:18px;line-height:1.4}
+.book-reader{max-width:1080px;margin:auto}
+.book-pages{display:grid;grid-template-columns:1fr 1fr;background:#231f20;box-shadow:0 20px 50px #0003;overflow:hidden}
+.book-pages canvas{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#eeeae2}
+.book-pages canvas:first-child{border-right:1px solid #555}
+.book-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0}
+.book-controls button{border:1px solid #191919;background:transparent;padding:13px 18px;cursor:pointer;font:inherit}
+.book-controls button:disabled{opacity:.3;cursor:default}
+.book-controls span{font-size:13px;letter-spacing:.08em}
+.book-pdf-link{display:inline-block;color:inherit;text-decoration:underline;margin-top:12px}
+#bookNotice{font-size:14px}
+@media(max-width:700px){.book-heading{display:block}.book-heading p{margin-top:22px}.book-controls button{padding:10px;font-size:12px}}
