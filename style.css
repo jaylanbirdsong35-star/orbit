@@ -184,3 +184,13 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 /* Keep Time application tile identical in size to all other application tiles, without distorting the video. */
 #applications .project-stage:has(video){aspect-ratio:19/15!important;overflow:hidden!important;background:#f4f0e8!important;display:flex!important;align-items:center!important;justify-content:center!important}
 #applications .project-stage video.project-slide.active{position:relative!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;aspect-ratio:auto!important;background:transparent!important}
+
+/* Restore multiple-image navigation for Nike and Digital Discovery. */
+#applications .interactive-project .gallery-arrow{display:grid!important;top:50%!important;opacity:1!important;visibility:visible!important;z-index:15!important}
+#applications .interactive-project .gallery-counter{display:block!important;z-index:15!important}
+#applications .interactive-project .project-stage:hover .gallery-arrow,#applications .interactive-project .project-stage:focus-within .gallery-arrow{top:50%!important}
+/* Video: black letterboxing inside the same 19:15 frame as all other applications, no distortion. */
+#applications .project-stage:has(video){aspect-ratio:19/15!important;background:#000!important;overflow:hidden!important;display:flex!important;align-items:center!important;justify-content:center!important}
+#applications .project-stage video.project-slide.active{display:block!important;position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:#000!important}
+#panel-strategy .strategy-prompt{padding:clamp(30px,4vw,65px) 4% 85px;background:#efebe4}
+#panel-strategy .strategy-prompt h2{font-size:clamp(70px,8.2vw,145px);letter-spacing:-.085em;line-height:1;font-weight:600;margin:0 0 30px}
