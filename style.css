@@ -162,3 +162,8 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 #applications .project-slide.active{object-fit:contain!important;object-position:center!important}
 #applications .project-stage:hover .project-slide.active,#applications .project-stage:focus-within .project-slide.active{height:68%!important;object-fit:contain!important}
 @media(max-width:750px){.strategy-intro-split{grid-template-columns:1fr}.strategy-intro-photo{min-height:55vh}.strategy-intro-black{min-height:450px}.strategy-intro-black h2{font-size:clamp(60px,12vw,100px)}#applications .project-grid{grid-template-columns:1fr!important}.strategy-outro{height:55vh}}
+
+/* Updated 19:15 application art: no edge crop or surrounding matte */
+#applications .project-stage{aspect-ratio:19/15!important;padding:0!important;border:0!important;background:transparent!important}
+#applications .project-slide.active{width:100%!important;height:100%!important;inset:0!important;object-fit:fill!important}
+#applications .project-stage:hover .project-slide.active,#applications .project-stage:focus-within .project-slide.active{width:100%!important;height:100%!important;object-fit:fill!important}
