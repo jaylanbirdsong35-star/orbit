@@ -175,3 +175,8 @@ html{scroll-behavior:auto}.page{display:none}.page.current{display:flex;flex-dir
 #applications .gallery-arrow,#applications .gallery-counter{display:none!important}
 #applications .project-stage:has(video){background:#000!important}
 #applications .project-stage video.project-slide.active{object-fit:contain!important;object-position:center!important;background:#000!important}
+
+/* Restore natural Time video presentation without a forced black backdrop. */
+#applications .project-stage:has(video){background:transparent!important;aspect-ratio:auto!important;overflow:visible!important}
+#applications .project-stage video.project-slide.active{position:relative!important;display:block!important;width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;background:transparent!important}
+#applications .project-stage:has(video) .project-overlay{display:none!important}
